@@ -5,7 +5,7 @@ SRC_FILES = megaphone
 
 SRC_DIR = ./
 OBJ_DIR = obj/
-CC = g++
+CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 AR = ar rcs
 
