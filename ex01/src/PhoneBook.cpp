@@ -6,7 +6,7 @@
 /*   By: alvega-g <alvega-g@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:51:35 by alvega-g          #+#    #+#             */
-/*   Updated: 2024/03/11 13:10:43 by alvega-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 10:27:43 by alvega-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static void search_ui(Contact contacts[8]){
 	std::string str;
 
 	std::cout << " ____________________________________________" << std::endl;
-	std::cout << "|	    Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
 	
 	for (size_t i = 0; i < 8; i++){
