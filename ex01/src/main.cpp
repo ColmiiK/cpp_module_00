@@ -6,13 +6,11 @@
 /*   By: alvega-g <alvega-g@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:28:21 by alvega-g          #+#    #+#             */
-/*   Updated: 2024/03/11 12:11:17 by alvega-g         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:43:39 by alvega-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <PhoneBook.hpp>
-#include <iostream>
-#include <string>
 
 int main(){
 	

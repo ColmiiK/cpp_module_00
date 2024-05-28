@@ -6,7 +6,7 @@
 /*   By: alvega-g <alvega-g@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:51:35 by alvega-g          #+#    #+#             */
-/*   Updated: 2024/03/18 10:27:43 by alvega-g         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:45:28 by alvega-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static void add_spaces(std::string str){
 }
 static void check_spacing_and_print(std::string str){
 	if (str.size() > 10)
-		str.replace(10, str.size() - 10, ".");
+		str.replace(9, str.size() - 9, ".");
 	else if (str.size() < 10)
 		add_spaces(str);
 	std::cout << str << "|";
