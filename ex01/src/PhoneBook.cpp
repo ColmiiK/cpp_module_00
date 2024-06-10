@@ -6,7 +6,7 @@
 /*   By: alvega-g <alvega-g@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:51:35 by alvega-g          #+#    #+#             */
-/*   Updated: 2024/05/28 15:45:28 by alvega-g         ###   ########.fr       */
+/*   Updated: 2024/06/10 13:25:03 by alvega-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void PhoneBook::add(){
 	while (str == ""){
 		std::cout << "Enter your first name: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return ;
+		}
 		if (str == "")
 			std::cout << "Field cannot be empty, please try again" << std::endl;
 	}
@@ -36,6 +40,10 @@ void PhoneBook::add(){
 	while (str == ""){
 		std::cout << "Enter your last name: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return ;
+		}
 		if (str == "")
 			std::cout << "Field cannot be empty, please try again" << std::endl;
 	}
@@ -45,6 +53,10 @@ void PhoneBook::add(){
 	while (str == ""){
 		std::cout << "Enter your nickname: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return ;
+		}
 		if (str == "")
 			std::cout << "Field cannot be empty, please try again" << std::endl;
 	}
@@ -54,8 +66,16 @@ void PhoneBook::add(){
 	while (str == ""){
 		std::cout << "Enter your phone number: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return ;
+		}
 		if (str == "")
 			std::cout << "Field cannot be empty, please try again" << std::endl;
+		if (str.find_first_not_of("0123456789") != std::string::npos) {
+			std::cout << "Field can only contain numbers, please try again" << std::endl;
+			str = "";
+		}
 	}
 	contacts[index % 8].set_number(str);
 
@@ -63,6 +83,10 @@ void PhoneBook::add(){
 	while (str == ""){
 		std::cout << "Enter your darkest secret: ";
 		std::getline(std::cin, str);
+		if (std::cin.eof()) {
+			std::cout << std::endl;
+			return ;
+		}
 		if (str == "")
 			std::cout << "Field cannot be empty, please try again" << std::endl;
 	}
@@ -74,18 +98,10 @@ void PhoneBook::add(){
 		std::cout << "Warning: phonebook is full, adding more contacts will overwrite the oldest ones" << std::endl;
 }
 
-static void add_spaces(std::string str){
-	for (size_t i = 0; i < 10 - str.size(); i++){
-		std::cout << " ";
-	}
-	return;
-}
 static void check_spacing_and_print(std::string str){
 	if (str.size() > 10)
-		str.replace(9, str.size() - 9, ".");
-	else if (str.size() < 10)
-		add_spaces(str);
-	std::cout << str << "|";
+		str = str.substr(0, 9) + ".";
+	std::cout << std::setw(10) << std::right << str << "|";
 	return ;
 }
 static void search_ui(Contact contacts[8]){
@@ -114,7 +130,10 @@ void PhoneBook::search(){
 	
 	std::cout << "Enter the index of the contact you want to see: ";
 	std::getline(std::cin, str);
-	
+	if (std::cin.eof()) {
+		std::cout << std::endl;
+		return ;
+	}
 	if (str.size() != 1 || str[0] < '1' || str[0] > '8'){
 		std::cout << "Invalid index, please try again" << std::endl;
 		return;
