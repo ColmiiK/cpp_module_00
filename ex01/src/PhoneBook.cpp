@@ -6,7 +6,7 @@
 /*   By: alvega-g <alvega-g@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:51:35 by alvega-g          #+#    #+#             */
-/*   Updated: 2024/06/10 13:25:03 by alvega-g         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:30:41 by alvega-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,13 @@ void PhoneBook::add(){
 }
 
 static void check_spacing_and_print(std::string str){
-	if (str.size() > 10)
+	if (str.length() <= 10) {
+		std::cout << std::right << std::setw(10) << str;
+	} else {
 		str = str.substr(0, 9) + ".";
-	std::cout << std::setw(10) << std::right << str << "|";
+		std::cout << std::right << std::setw(10) << str;
+	}
+	std::cout << "|";
 	return ;
 }
 static void search_ui(Contact contacts[8]){
